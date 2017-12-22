@@ -18,11 +18,26 @@ router.get('/new', function(req, res) {
   res.render('teams/new');
 });
 
+router.get('/edit', function(req,res){
+	res.send('edit form');
+});
+
 router.get('/:name', function(req, res) {
   // search for the team name in all the teams.
   var team = teamService.getTeam(req.params.name);
 
   res.render('teams/show', { team: team });
+});
+
+router.put('/:name', function(req,res){
+	console.log('name:', req.params.name);
+	res.send('PUT Route!');
+});
+
+router.delete('/:name', function(req,res){
+	console.log('name:', req.params.name);
+	teamService.deleteTeam(req.params.name);
+	res.send('success');
 });
 
 module.exports = router;

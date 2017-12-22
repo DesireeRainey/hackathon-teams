@@ -14,7 +14,8 @@ function getTeam(teamName) {
     }
   }
 }
-
+//input and output for routes
+//can access from controller
 function deleteTeam(teamName) {
   var teams = allTeams();
   var index = -1;
